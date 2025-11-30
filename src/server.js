@@ -4,6 +4,7 @@ import express from "express";
 import { initDB } from "./models/index.js";
 import routes from "./routes/index.js";
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler.js";
+import { serverless } from "serverless-http";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -30,4 +31,10 @@ async function startServer() {
   }
 }
 
-startServer();
+export default app;
+
+if (process.env.NETLIFY !== "true") {
+  startServer();
+}
+
+export const handler = serverless(app);
