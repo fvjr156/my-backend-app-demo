@@ -1,5 +1,5 @@
 import pkg from 'serverless-http';
 const { serverless } = pkg;
-import app from "../../src/app.js";
+import app from "./app.js";
 
 export const handler = serverless(app);
