@@ -1,3 +1,5 @@
 node_modules/
 .env
 notes.txt
+# Local Netlify folder
+.netlify
